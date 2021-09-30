@@ -349,6 +349,9 @@ func (this *replicator) sendSnapshots() error {
 
 			//atomic.AddInt64(&s.inflightSnapshots, 1)
 			this.node.transport.SendSnapshot(mergedSnap)
+
+			log.Printf("nexus.raft: [Node %x] Completed sending snapshot.", this.node.id)
+
 			//go func() {
 			//	select {
 			//	case ok := <-merged.CloseNotify():
