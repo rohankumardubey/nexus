@@ -19,8 +19,8 @@ import (
 	"crypto/sha1"
 	"encoding/binary"
 	"errors"
-	"go.uber.org/zap"
 	"github.com/flipkart-incubator/nexus/pkg/db"
+	"go.uber.org/zap"
 	"io"
 	"log"
 	"net"
@@ -43,16 +43,6 @@ import (
 	etcd_stats "go.etcd.io/etcd/server/v3/etcdserver/api/v2stats"
 	"go.etcd.io/etcd/server/v3/wal"
 	"go.etcd.io/etcd/server/v3/wal/walpb"
-	etcd_stats "github.com/coreos/etcd/etcdserver/stats"
-	"github.com/coreos/etcd/pkg/fileutil"
-	"github.com/coreos/etcd/pkg/types"
-	"github.com/coreos/etcd/raft"
-	"github.com/coreos/etcd/raft/raftpb"
-	"github.com/coreos/etcd/rafthttp"
-	"github.com/coreos/etcd/wal"
-	"github.com/coreos/etcd/wal/walpb"
-	"github.com/coreos/etcd/snap"
-
 )
 
 const (
