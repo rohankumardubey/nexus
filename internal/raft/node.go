@@ -165,7 +165,6 @@ func (rc *raftNode) saveSnap(snap raftpb.Snapshot) error {
 		Index:     snap.Metadata.Index,
 		Term:      snap.Metadata.Term,
 		ConfState: &snap.Metadata.ConfState,
-
 	}
 	// save the snapshot file before writing the snapshot to the wal.
 	// This makes it possible for the snapshot file to become orphaned, but prevents
@@ -370,7 +369,7 @@ func (rc *raftNode) startRaft() {
 		ReadOnlyOption:            rc.readOption,
 		CheckQuorum:               rc.readOption == raft.ReadOnlyLeaseBased,
 		MaxUncommittedEntriesSize: 1 << 30,
-		Applied:         rc.appliedIndex,
+		Applied:                   rc.appliedIndex,
 	}
 
 	if oldwal || rc.join {
@@ -387,6 +386,7 @@ func (rc *raftNode) startRaft() {
 		LeaderStats: etcd_stats.NewLeaderStats(rc.logger, strconv.Itoa(int(rc.id))),
 		ErrorC:      make(chan error),
 		Snapshotter: rc.snapshotter,
+		Logger:      rc.logger,
 	}
 
 	rc.transport.Start()

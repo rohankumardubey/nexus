@@ -242,7 +242,7 @@ func (this *replicator) proposeConfigChange(ctx context.Context, confChange raft
 	}
 }
 
-func (this *replicator) restoreFromSnapshot()   {
+func (this *replicator) restoreFromSnapshot() {
 	snapshot, err := this.node.snapshotter.Load()
 	if err == snap.ErrNoSnapshot {
 		log.Printf("[Node %x] WARNING - Received no snapshot error", this.node.id)
@@ -345,7 +345,7 @@ func (this *replicator) sendSnapshots() error {
 			stat, _ := rc.Stat()
 			mergedSnap := *snap.NewMessage(m, rc, stat.Size())
 
-			log.Printf("nexus.raft: [Node %x] Sending snap(T%d)+db(%s) snapshot to  %x \n", this.node.id, snapshot.Metadata.Index ,path.Base(dbFile), m.To)
+			log.Printf("nexus.raft: [Node %x] Sending snap(T%d)+db(%s) snapshot to  %x \n", this.node.id, snapshot.Metadata.Index, path.Base(dbFile), m.To)
 
 			//atomic.AddInt64(&s.inflightSnapshots, 1)
 			this.node.transport.SendSnapshot(mergedSnap)
