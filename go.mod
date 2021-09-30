@@ -3,18 +3,18 @@ module github.com/flipkart-incubator/nexus
 go 1.13
 
 require (
+	github.com/coreos/etcd v3.3.17+incompatible
 	github.com/go-redis/redis v6.15.6+incompatible
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/golang/protobuf v1.5.2
 	github.com/onsi/ginkgo v1.12.0 // indirect
 	github.com/onsi/gomega v1.9.0 // indirect
 	github.com/smira/go-statsd v1.3.1
-	go.etcd.io/etcd/client/pkg/v3 v3.5.0-rc.1
 	go.etcd.io/etcd/pkg/v3 v3.5.0-rc.1
 	go.etcd.io/etcd/raft/v3 v3.5.0-rc.1
 	go.etcd.io/etcd/server/v3 v3.5.0-rc.1
-	go.uber.org/zap v1.17.0 // indirect
 	google.golang.org/grpc v1.38.0
+	google.golang.org/protobuf v1.27.1
 )
 
 replace (
